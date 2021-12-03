@@ -8,13 +8,14 @@ def run():
     screen = pygame.display.set_mode((800, 600))
     pygame.display.set_caption("Space Invaders")
     bg_color = (0, 0, 0)
+    bgc = pygame.image.load("assets/bgc.jpg")
     spaceship = SpaceShip(screen)
     bullets = Group()
 
     while True:
         controls.events(screen, spaceship, bullets)
         spaceship.update_spaceship()
-        controls.update_screen(bg_color, screen, spaceship, bullets)
+        controls.update_screen(bgc, bg_color, screen, spaceship, bullets)
         controls.update_bullets(bullets)
 
 

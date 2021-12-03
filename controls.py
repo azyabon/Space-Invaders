@@ -13,7 +13,7 @@ def events(screen, spaceship, bullets):
                 spaceship.mright = True
             elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 spaceship.mleft = True
-            elif event.type == pygame.K_SPACE:
+            elif event.key == pygame.K_SPACE:
                 new_bullet = Bullet(screen, spaceship)
                 bullets.add(new_bullet)
         elif event.type == pygame.KEYUP:
@@ -22,10 +22,11 @@ def events(screen, spaceship, bullets):
             elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 spaceship.mleft = False
 
-def update_screen(bg_color, screen, spaceship, bullets):
+def update_screen(bgc, bg_color, screen, spaceship, bullets):
     """update screen"""
 
     screen.fill(bg_color)
+    screen.blit(bgc, (0, 0))
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     spaceship.output()

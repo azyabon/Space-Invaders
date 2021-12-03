@@ -7,14 +7,14 @@ class Bullet(pygame.sprite.Sprite):
 
         super(Bullet, self).__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 6, 12)
-        self.color = 255, 255, 255
-        self.speed = 1.5
+        self.rect = pygame.Rect(0, 0, 3, 12)
+        self.color = (13, 255, 0)
+        self.speed = 0.7
         self.rect.centerx = spaceship.rect.centerx
         self.rect.top = spaceship.rect.top
         self.y = float(self.rect.y)
 
-    def update_bullet(self):
+    def update(self):
         """move bullet"""
 
         self.y -= self.speed
