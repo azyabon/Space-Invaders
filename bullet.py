@@ -7,7 +7,7 @@ class Bullet(pygame.sprite.Sprite):
 
         super(Bullet, self).__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 3, 12)
+        self.rect = pygame.Rect(0, 0, 3, 15)
         self.color = (13, 255, 0)
         self.speed = 0.7
         self.rect.centerx = spaceship.rect.centerx
