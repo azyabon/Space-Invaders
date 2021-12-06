@@ -1,15 +1,16 @@
-import pygame, controls, sys, os, time, threading
+import pygame, controls, sys, random
 from space_ship import SpaceShip
 from pygame.sprite import Group
 from stats import Stats
 from scores import Scores
 from menu import Menu
 
+
 def run():
 
     def start_game():
         while True:
-            controls.events(screen, spaceship, bullets)
+            controls.events(screen, spaceship, bullets, alien)
             spaceship.update_spaceship()
             controls.update_screen(bgc, bg_color, screen, stats, score, spaceship, alien, bullets)
             controls.update_bullets(screen, stats, score, alien, bullets)
@@ -24,7 +25,7 @@ def run():
     spaceship = SpaceShip(screen)
     bullets = Group()
     alien = Group()
-    controls.create_alien(screen, alien)
+    controls.create_alien(screen, alien, 4)
     stats = Stats()
     score = Scores(screen, stats)
     menu = Menu()
@@ -45,7 +46,7 @@ def run():
                     menu.switch(1)
                     pygame.mixer.music.load('assets/menu_move.mp3')
                     pygame.mixer.music.play()
-                elif event.key == pygame.K_SPACE:
+                elif event.key == pygame.K_SPACE or event.key == pygame.K_RETURN:
                     menu.select()
             screen.fill((0, 0, 0))
             menu.draw(screen, 100, 100, 80)

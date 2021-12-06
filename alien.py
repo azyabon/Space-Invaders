@@ -6,6 +6,7 @@ class Alien(pygame.sprite.Sprite):
 
     def __init__(self, screen):
         """init start position"""
+
         super(Alien, self).__init__()
         self.screen = screen
         self.aliens = ["assets/aliens/alien1.png", "assets/aliens/alien2.png", "assets/aliens/alien3.png", "assets/aliens/alien4.png", "assets/aliens/alien5.png"]
@@ -17,9 +18,9 @@ class Alien(pygame.sprite.Sprite):
         self.y = float(self.rect.y)
 
     def draw(self):
-        """output alien on dsp"""
+       """output alien on dsp"""
 
-        self.screen.blit(self.image, self.rect)
+       self.screen.blit(self.image, self.rect)
 
     def update(self):
         """moving alien"""
